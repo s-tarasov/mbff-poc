@@ -42,9 +42,9 @@ public class ContainerDiagram : DiagramBuildRunner
     protected override IElementTag SetTags()
     {
         return new ElementTag()
-            .AddElementTag("teamproduct", "#B22222")
-            .AddElementTag("teaminspire", "#008000")
-            .AddElementTag("teambasket", "#2F4F4F")
-            .AddElementTag("platform", "#0000FF", shape: Shape.EightSidedShape);
+            .AddElementTag("teamred", "#B22222")
+            .AddElementTag("teamgreen", "#008000")
+            .AddElementTag("teamblue", "#0000FF")
+            .AddElementTag("platform", "#2F4F4F", shape: Shape.EightSidedShape);
     }
 }

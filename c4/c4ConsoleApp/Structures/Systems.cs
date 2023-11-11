@@ -11,6 +11,6 @@ public static class Systems
         "ShopExample",
         "Shop Example")
     {
-        Description = "Взаимодействие с B2C клиентами"
+        Description = "Shop"
     };
 }
