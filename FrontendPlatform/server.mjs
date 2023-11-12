@@ -4,6 +4,8 @@ const app = new Koa();
 
 app.use(async ctx => {
   if (ctx.request.path == "/")
+    ctx.body = 'Hello Main';
+  else
     ctx.body = 'Hello World';
 });
 
