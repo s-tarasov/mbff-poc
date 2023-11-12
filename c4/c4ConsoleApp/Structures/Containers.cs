@@ -14,15 +14,14 @@ public static class Containers
         tags: new List<string>() { "platform" }
      );
 
-    /*
     public static Container FrontPlaform { get; } = new Container(
-        alias: "FrontPlaformSystem",
+        alias: "FrontEnv",
         type: ContainerType.None,
-        label: "Front PlaformSystem",
-        description: "выполняет микрофронты и lowcode",
-        technology: "Nodejs"
+        label: "Frontend Platform",
+        description: "среда исполения микрофронтов",
+        technology: "Nodejs",
+         tags: new List<string>() { "platform" }
      );
-    */
 
     public static Container ProductPageBFF { get; } = new Container(
         alias: "ProductPageBFF",
@@ -30,6 +29,15 @@ public static class Containers
         label: "Product Page BFF",
         description: "BFF страницы товара",
         technology: "ASP.NET",
+        tags : new List<string>() { "teamred" }
+     );
+
+     public static Container ProductPageFront { get; } = new Container(
+        alias: "ProductPageFront",
+        type: ContainerType.Microservice,
+        label: "Product Page Front",
+        description: "Front страницы товара",
+        technology: "Js",
         tags : new List<string>() { "teamred" }
      );
 

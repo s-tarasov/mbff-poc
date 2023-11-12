@@ -21,6 +21,8 @@ public class ContainerDiagram : DiagramBuildRunner
         People.Customer,
         new SoftwareSystemBoundary("c1", Systems.B2C.Label, 
             WebGateway,
+            FrontPlaform,
+            ProductPageFront,
             ProductPageBFF,
             ProductMS,
             InspireMSBFF,
@@ -31,6 +33,9 @@ public class ContainerDiagram : DiagramBuildRunner
     protected override IEnumerable<Relationship> Relationships => new[]
     {
         People.Customer > WebGateway | ("Uses", "HTTPS"),
+        WebGateway > FrontPlaform | "Proxy page requests",
+        WebGateway < FrontPlaform | "Proxy API requests",
+        FrontPlaform > ProductPageFront | "Execute",
         WebGateway > ProductPageBFF | "Proxy Product Page BFF requests",
         WebGateway > InspireMSBFF | "Proxy Recomendation Block BFF requests",
         WebGateway > BasketWidgetBFF | "Proxy Checkout Page BFF requests",
