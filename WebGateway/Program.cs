@@ -4,7 +4,12 @@ using Yarp.ReverseProxy.Transforms;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var pageRoutes = new[] { ("product/{**catch-all}", "product") };
+var pageRoutes = new[] 
+{ 
+    ("product", "product"),
+    ("bestproduct", "product"),
+    ("notimpl", "notimpl") 
+};
 
 var yarpRoutes = pageRoutes.Select(r => MapRoute(r.Item1, r.Item2)).ToList();
 
@@ -16,19 +21,17 @@ var app = builder.Build();
 
 RouteConfig MapRoute(string pattern, string page)
 {
-    var route = new RouteConfig
+    return new RouteConfig
     {
         RouteId = pattern,
         Match = new RouteMatch
         {
-            Path = pattern
+            Path = pattern + "/{**catch-all}"
         },
         ClusterId = "frontendPlatform"
     }
-    .WithTransformRequestHeader(headerName: "X-Page", value: page, append: false);
-return route;
-
-
+    .WithTransformRequestHeader(headerName: "X-Page", value: page, append: false)
+    .WithTransformRequestHeader(headerName: "X-Page-Base-Url", value: "/" + pattern, append: false);
 }
 
 app.UseHttpsRedirection();
