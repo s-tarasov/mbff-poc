@@ -33,7 +33,12 @@ RouteConfig MapRoute(string pattern, string page)
     .WithTransformRequestHeader(headerName: "X-Page", value: page, append: false)
     .WithTransformRequestHeader(headerName: "X-Page-Base-Url", value: "/" + pattern, append: false);
 }
-
 app.UseHttpsRedirection();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+           Path.Combine(builder.Environment.ContentRootPath, "..")),
+    RequestPath = "/static"
+});
 app.MapReverseProxy();
 app.Run();
