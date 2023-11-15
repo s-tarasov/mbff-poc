@@ -14,20 +14,20 @@ var products = new[]
     {
         new ProductVariant (
             sku: "t_porsche",
-            name: "Porsche-Diesel Master 419",
-            image: "/red/images/tractor-red.jpg",
+            name: "Porsche-Diesel Master 319",
+            image: "/static/ProductFront/images/tractor-red.jpg",
             price: 66m
         ),
         new ProductVariant (
             sku: "t_fendt",
             name: "Fendt F20 Dieselroß",
-            image: "/red/images/tractor-green.jpg",
+            image: "/static/ProductFront/images/tractor-green.jpg",
             price: 54m
         ),
         new ProductVariant (
             sku: "t_eicher",
             name: "Eicher Diesel 215/16",
-            image: "/red/images/tractor-blue.jpg",
+            image: "/static/ProductFront/images/tractor-blue.jpg",
             price: 58m
         )
     })

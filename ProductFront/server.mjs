@@ -1,45 +1,16 @@
-
-const product = {
-    name: 'Tractor',
-    variants: [
-      {
-        sku: 't_porsche',
-        color: 'red',
-        name: 'Porsche-Diesel Master 419',
-        image: '/static/ProductFront/images/tractor-red.jpg',
-        thumb: '/static/ProductFront/images/tractor-red-thumb.jpg',
-        price: '66,00 €',
-      },
-      {
-        sku: 't_fendt',
-        color: 'green',
-        name: 'Fendt F20 Dieselroß',
-        image: '/static/ProductFront/images/tractor-green.jpg',
-        thumb: '/static/ProductFront/images/tractor-green-thumb.jpg',
-        price: '54,00 €',
-      },
-      {
-        sku: 't_eicher',
-        color: 'blue',
-        name: 'Eicher Diesel 215/16',
-        image: '/static/ProductFront/images/tractor-blue.jpg',
-        thumb: '/static/ProductFront/images/tractor-blue-thumb.jpg',
-        price: '58,00 €',
-      },
-    ],
-  };
-  
   function renderOption(variant, sku) {
     const active = sku === variant.sku ? 'active' : '';
     return `
       <a href="/${variant.sku}" class="${active}" type="button" data-sku="${variant.sku}">
-        <img src="${variant.thumb}" alt="${variant.name}" />
+        <img src="${variant.image}" alt="${variant.name}" />
       </a>
     `;
   }
   
 
-  function renderPage(sku = 't_porsche') {
+  async function renderPage(ctx, apiClient) {
+    const sku = 't_porsche';
+    const product = (await apiClient.get('/apigw/productPageBFF/productpage/1/')).data;
     const variant = product.variants.find((v) => sku === v.sku);
     if (!variant) { return '<pre>no product not found</pre>'; }
     return `
