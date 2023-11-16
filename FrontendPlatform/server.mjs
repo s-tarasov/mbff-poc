@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url';
 import { pages as productPages } from "../ProductFront/server.mjs";
 import axios  from 'axios';
 
-
 const apiClient = axios.create({
   baseURL: 'http://localhost:5001/'
 });
@@ -19,17 +18,16 @@ render(app, {
 });
 
 app.use(async ctx => {
-
   var page = productPages.find(p => p.type === ctx.request.headers['x-page']);
   if (page)
   {
+      ctx.pageBaseUrl = ctx.request.headers['x-page-base-url'];
+      const requestSegments = ctx.request.path.split('/').filter(s => s);
+      ctx.pageExtraSegments = requestSegments.slice(ctx.pageBaseUrl.match(/\//g).length);
       var html = await page.handle(ctx, apiClient);
       await ctx.render("layout", { html });
       return;
-  }
-
-  ctx.body = 'Hello World headers:' + JSON.stringify(ctx.request.headers);
-    
+  }    
 });
 
 app.listen(5500);

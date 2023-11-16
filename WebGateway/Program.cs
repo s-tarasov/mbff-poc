@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 var pageRoutes = new[] 
 { 
     ("product", "product"),
-    ("bestproduct", "product"),
+    ("best/product", "product"),
     ("notimpl", "notimpl") 
 };
 
