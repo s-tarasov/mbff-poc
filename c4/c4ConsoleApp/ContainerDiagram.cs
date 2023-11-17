@@ -25,8 +25,9 @@ public class ContainerDiagram : DiagramBuildRunner
             ProductPageFront,
             ProductPageBFF,
             ProductMS,
-            InspireMSBFF,
-            BasketWidgetBFF,
+            InspireFront,
+            InspireBFF,
+            InspireMS,
             BasketMS),
     };
 
@@ -36,12 +37,13 @@ public class ContainerDiagram : DiagramBuildRunner
         WebGateway > FrontPlaform | "Proxy page requests",
         WebGateway < FrontPlaform | "Proxy API requests",
         FrontPlaform > ProductPageFront | "Execute",
+        FrontPlaform > InspireFront | "Execute",
         WebGateway > ProductPageBFF | "Proxy Product Page BFF requests",
-        WebGateway > InspireMSBFF | "Proxy Recomendation Block BFF requests",
-        WebGateway > BasketWidgetBFF | "Proxy Checkout Page BFF requests",
+        WebGateway > InspireBFF | "Proxy Recomendation Block BFF requests",
+        ProductPageBFF > BasketMS | "Request Basket State",
         ProductPageBFF > ProductMS | "Request Product Info",
-        InspireMSBFF > ProductMS | "Request Product Info" | Position.Neighbor,
-        BasketWidgetBFF > BasketMS | "Request Basket State"
+        InspireBFF > InspireMS | "Request Recomendations",
+        InspireBFF > ProductMS | "Request Product Info"
     };
 
     protected override IElementTag SetTags()

@@ -23,15 +23,6 @@ public static class Containers
          tags: new List<string>() { "platform" }
      );
 
-    public static Container ProductPageBFF { get; } = new Container(
-        alias: "ProductPageBFF",
-        type: ContainerType.Microservice,
-        label: "Product Page BFF",
-        description: "BFF страницы товара",
-        technology: "ASP.NET",
-        tags : new List<string>() { "teamred" }
-     );
-
      public static Container ProductPageFront { get; } = new Container(
         alias: "ProductPageFront",
         type: ContainerType.Microservice,
@@ -40,6 +31,15 @@ public static class Containers
         technology: "Js",
         tags : new List<string>() { "teamred" }
      );
+
+    public static Container ProductPageBFF { get; } = new Container(
+        alias: "ProductPageBFF",
+        type: ContainerType.Microservice,
+        label: "Product Page BFF",
+        description: "BFF страницы товара",
+        technology: "ASP.NET",
+        tags : new List<string>() { "teamred" }
+     );     
 
     public static Container ProductMS { get; } = new Container(
         alias: "ProductMS",
@@ -50,31 +50,39 @@ public static class Containers
         tags: new List<string>() { "teamred" }
      );
 
-    public static Container InspireMSBFF { get; } = new Container(
-        alias: "InspireMSBFF",
+    public static Container InspireFront { get; } = new Container(
+        alias: "InspireFront",
         type: ContainerType.Microservice,
-        label: "InspireMSBFF",
-        description: "BFF блока рекомендаций и API рекомендаций",
+        label: "Recommendation Block Front",
+        description: "Front блока рекомендаций",
+        technology: "Js",
+        tags : new List<string>() { "teamgreen" }
+     );
+
+    public static Container InspireBFF { get; } = new Container(
+        alias: "InspireBFF",
+        type: ContainerType.Microservice,
+        label: "InspireBFF",
+        description: "BFF рекомендаций",
+        technology: "Node.Js",
+        tags: new List<string>() { "teamgreen" }
+     );
+
+    public static Container InspireMS { get; } = new Container(
+        alias: "InspireMS",
+        type: ContainerType.Microservice,
+        label: "InspireMS",
+        description: "MS рекомендаций",
         technology: "ASP.NET",
         tags: new List<string>() { "teamgreen" }
      );
 
-    public static Container BasketWidgetBFF { get; } = new Container(
-        alias: "BasketBlockBFF",
-        type: ContainerType.Microservice,
-        label: "Basket Block BFF",
-        description: "BFF страницы заказа",
-        technology: "ASP.NET",
-        tags: new List<string>() { "teamblue" }
-    );
-
     public static Container BasketMS { get; } = new Container(
         alias: "BasketMS",
         type: ContainerType.Microservice,
-        label: "Basket MS",
-        description: "MS оформления заказа",
+        label: "BasketMS",
+        description: "API корзины",
         technology: "ASP.NET",
         tags: new List<string>() { "teamblue" }
     );
-
 }
