@@ -64,8 +64,9 @@ var productToRecomendations = new Dictionary<int, Recomendation[]>
   }
 };
 
-app.MapGet("/recomendations/", (int forProductId) =>
+app.MapGet("/recomendations/", async (int forProductId) =>
 {
+    await Task.Delay(500);
     return productToRecomendations[forProductId].OrderBy(f => Guid.NewGuid());
 })
 .WithName("GetRecomendations")

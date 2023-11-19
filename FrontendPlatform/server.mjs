@@ -25,7 +25,8 @@ app.use(async ctx => {
       const requestSegments = ctx.request.path.split('/').filter(s => s);
       ctx.pageExtraSegments = requestSegments.slice(ctx.pageBaseUrl.match(/\//g).length);
       var html = await page.handle(ctx, apiClient);
-      await ctx.render("layout", { html });
+      var script = `document.pageBaseUrl = "${ctx.pageBaseUrl}";`;
+      await ctx.render("layout", { html, script });
       return;
   }    
 });

@@ -1,4 +1,6 @@
-  function renderOption(ctx, productId, variant, sku) {
+import {productRecommendations} from "../InspireFront/server.mjs"
+
+function renderOption(ctx, productId, variant, sku) {
     const active = sku === variant.sku ? 'active' : '';
     return `
       <a href="${ctx.pageBaseUrl}/${productId}/${variant.sku}/" class="${active}" type="button" data-sku="${variant.sku}">
@@ -20,7 +22,7 @@
       <h2 id="name">${product.name} <small>${variant.name}</small></h2>
       <div id="options">${product.variants.map((v) => renderOption(ctx, productId, v, sku)).join('')}</div>
       <blue-buy id="buy" sku="${variant.sku}"><!--#include virtual="/blue-buy?sku=${encodeURIComponent(variant.sku)}" --></blue-buy>
-      <green-recos id="reco" sku="${variant.sku}"><!--#include virtual="/green-recos?sku=${encodeURIComponent(variant.sku)}" --></green-recos>
+      <green-recos id="reco">${productRecommendations.renderServerHtml(ctx, productId)}</green-recos>
     `;
   }
 
