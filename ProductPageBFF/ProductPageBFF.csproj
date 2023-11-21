@@ -11,7 +11,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <OpenApiReference Include="swagger.json" SourceUrl="http://localhost:5087/swagger/v1/swagger.json" 
-    ClassName="ProductMsClient" />
+    <OpenApiReference Include="basketMs.openapi.json" SourceUrl="http://localhost:5058/swagger/v1/swagger.json" ClassName="BasketMsClient" />
+    <OpenApiReference Include="productMs.openapi.json" SourceUrl="http://localhost:5087/swagger/v1/swagger.json" ClassName="ProductMsClient" />
   </ItemGroup>
 </Project>
