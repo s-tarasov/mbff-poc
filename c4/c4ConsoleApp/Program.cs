@@ -8,7 +8,8 @@ internal static class Program
     {
         var diagrams = new[]
         {
-            new ContainerDiagram().Build()
+            new ContainerDiagram().Build(),
+            new AuthContainerDiagram().Build()
         };
 
         var context = new PlantumlContext();

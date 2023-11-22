@@ -25,8 +25,8 @@ app.MapGet("/productpage/{productId}", async (int productId) =>
 });
 
 app.MapGet("/basketcount/", async (HttpContext context) =>
-{
-    var basketId = context.Request.Cookies["basketId"];
+{    
+    var basketId = context.Request.Headers["X-USER"][0].NullIfEmpty() ?? context.Request.Cookies["basketId"];
     if (basketId is null)
       return new { Count = 0 };
 
@@ -38,7 +38,7 @@ app.MapGet("/basketcount/", async (HttpContext context) =>
 
 app.MapPost("/add-basket-item/", async (HttpContext context) =>
 {
-   var basketId = context.Request.Cookies["basketId"];
+    var basketId = context.Request.Headers["X-USER"][0].NullIfEmpty() ?? context.Request.Cookies["basketId"];
     if (basketId is null)
     {
         basketId = Guid.NewGuid().ToString();

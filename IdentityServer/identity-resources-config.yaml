@@ -1,0 +1,4 @@
+- Name: openid
+  ClaimTypes:
+  - identity_id
+  - email

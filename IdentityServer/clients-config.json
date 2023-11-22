@@ -1,0 +1,15 @@
+[
+  {
+    "ClientId": "webgateway",
+    "ClientSecrets": [ "webgateway-secret" ],
+    "Description": "webgateway code flow",
+    "AllowedGrantTypes": [ "authorization_code" ],
+    "AllowOfflineAccess": true,
+    "AlwaysIncludeUserClaimsInIdToken": true,
+    "RedirectUris": [ "https://localhost:7245/signin-oidc" ],
+    "AllowedScopes": [ "openid", "offline" ],
+    "RequirePkce": "false",
+    "IdentityTokenLifetime": 30,
+    "AccessTokenLifetime": 30
+  }
+]

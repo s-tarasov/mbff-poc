@@ -11,6 +11,13 @@ public static class Systems
         "ShopExample",
         "Shop Example")
     {
-        Description = "Shop"
+        Description = "Shop B2C"
+    };
+
+    public static SoftwareSystem Core { get; } = new SoftwareSystem(
+        "ShopExample Core",
+        "Shop Example Core")
+    {
+        Description = "Shop Core"
     };
 }

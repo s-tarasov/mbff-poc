@@ -1,0 +1,12 @@
+- SubjectId: '1'
+  Username: User1
+  Password: pwd
+  StringClaims:
+    identity_id: e380ffe8-0cc5-4b28-a775-69ac8d9a72af
+    email: User1@email
+- SubjectId: '2'
+  Username: User2
+  Password: pwd
+  StringClaims:
+    identity_id: e380ffe8-0cc5-4b28-a775-69ac8d9a72af
+    email: User2@email

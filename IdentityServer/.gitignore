@@ -1,0 +1,19 @@
+# TypeScript project
+node_modules
+
+# .Net project
+bin
+obj
+packages
+
+# Docker
+.docker
+
+
+
+# Runtime data
+keys
+tempkey.jwk
+
+.vs
+publish

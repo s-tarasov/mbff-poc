@@ -9,8 +9,26 @@ public static class Containers
         alias: "WebGateway",
         type: ContainerType.None,
         label: "Web Gateway",
-        description: "Направляет запросы к сайту beeline.ru",
+        description: "Направляет запросы к сайту",
         technology: "C#, YARP",
+        tags: new List<string>() { "platform" }
+     );
+
+     public static Container ApiGateway { get; } = new Container(
+        alias: "ApiGateway",
+        type: ContainerType.None,
+        label: "ApiGateway",
+        description: "Направляет запросы к MS",
+        technology: "C#, YARP",
+        tags: new List<string>() { "platform" }
+     );
+
+    public static Container IdentityServer { get; } = new Container(
+        alias: "IdentityServer",
+        type: ContainerType.None,
+        label: "IdentityServer",
+        description: "Идентифицирует пользователя",
+        technology: "C#, Duendo IS",
         tags: new List<string>() { "platform" }
      );
 
@@ -18,7 +36,7 @@ public static class Containers
         alias: "FrontEnv",
         type: ContainerType.None,
         label: "Frontend Platform",
-        description: "среда исполения микрофронтов",
+        description: "Среда исполения микрофронтов",
         technology: "Nodejs",
          tags: new List<string>() { "platform" }
      );
