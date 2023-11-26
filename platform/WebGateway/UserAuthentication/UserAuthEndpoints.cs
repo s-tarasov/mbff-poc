@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
-namespace WebGateway.Authentication;
+namespace WebGateway.UserAuthentication;
 
-public static class GatewayEndpoints
+public static class UserAuthEndpoints
 {
-    public static void UseAuthenticationEndpoints(this WebApplication app)
+    public static void UseUserAuthenticationEndpoints(this WebApplication app)
     {
         app.MapGet("/login", (string? redirectUrl, HttpContext ctx) =>
         {

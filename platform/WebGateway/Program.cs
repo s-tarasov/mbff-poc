@@ -1,4 +1,5 @@
-using WebGateway.Authentication;
+using WebGateway.UserAuthentication;
+using WebGateway.DestinationAuthentication;
 
 using Yarp.ReverseProxy.Configuration;
 using Yarp.ReverseProxy.Transforms;
@@ -18,9 +19,12 @@ var yarpRoutes = pageRoutes.Select(r => MapRoute(r.Item1, r.Item2)).ToList();
 builder.Services.AddReverseProxy()
     .LoadFromMemory(yarpRoutes, Array.Empty<ClusterConfig>())
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"))
-    .AddTransforms(AuthRequestTransformer.Transform);
+    .AddTransforms(UserAuthRequestTransformer.Transform)
+    .AddTransforms(DestinationAuthRequestTransformer.Transform);
 
-builder.AddAuthServices();
+builder.AddDestinationAuthServices();
+builder.AddUserAuthServices();
+
 
 var app = builder.Build();
 
@@ -49,6 +53,7 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseHttpsRedirection();
 app.UseAuthentication();
 
-app.UseAuthenticationEndpoints();
+app.UseDestinationAuthenticationEndpoints();
+app.UseUserAuthenticationEndpoints();
 app.MapReverseProxy();
 app.Run();

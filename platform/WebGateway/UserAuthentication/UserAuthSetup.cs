@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace WebGateway.Authentication;
+namespace WebGateway.UserAuthentication;
 
-public static class AuthSetup
+public static class UserAuthSetup
 {
-    public static void AddAuthServices(this WebApplicationBuilder builder)
+    public static void AddUserAuthServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddAuthentication(options =>
         {
