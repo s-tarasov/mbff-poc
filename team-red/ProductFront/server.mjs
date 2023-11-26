@@ -1,4 +1,4 @@
-import {productRecommendations} from "../InspireFront/server.mjs"
+import {productRecommendations} from "../../team-green/InspireFront/server.mjs"
 
 function renderOption(ctx, productId, variant, sku) {
     const active = sku === variant.sku ? 'active' : '';

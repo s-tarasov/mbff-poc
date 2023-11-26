@@ -42,7 +42,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
-           Path.Combine(builder.Environment.ContentRootPath, "..")),
+           Path.Combine(builder.Environment.ContentRootPath, "..", "..")),
     RequestPath = "/static"
 });
 
