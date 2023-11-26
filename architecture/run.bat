@@ -1,0 +1,1 @@
+dotnet watch run --project c4src --no-hot-reload
